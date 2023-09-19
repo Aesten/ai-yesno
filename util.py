@@ -198,7 +198,7 @@ def get_data_loaders(metadata_df, data_folder):
   train_ds, val_ds = random_split(myds, [num_train, num_val])
 
   # Create training and validation data loaders
-  train_dl = torch.utils.data.DataLoader(train_ds, batch_size=16, shuffle=True)
-  val_dl = torch.utils.data.DataLoader(val_ds, batch_size=16, shuffle=False)
+  train_dl = torch.utils.data.DataLoader(train_ds, batch_size=16, shuffle=True, pin_memory=True)
+  val_dl = torch.utils.data.DataLoader(val_ds, batch_size=16, shuffle=False, pin_memory=True)
   
   return train_dl, val_dl
